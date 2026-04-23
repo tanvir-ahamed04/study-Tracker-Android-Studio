@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="accent">#06B6D4</color>
+    <color name="background">#F3F4F6</color>
+    <color name="background_gradient_start">#F3F4F6</color>
+    <color name="background_gradient_end">#E5E7EB</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#EF4444</color>
+    <color name="primary_light">#818CF8</color>
+    <color name="chip_selected">#6366F1</color>
+    <color name="chip_unselected">#F3F4F6</color>
+    <color name="chip_text_selected">#FFFFFF</color>
+    <color name="chip_text_unselected">#374151</color>
+
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+
+
+</resources>

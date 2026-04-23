@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gradient_start"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Gradient Header Background -->
+        <View
+            android:id="@+id/headerGradient"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:background="@drawable/gradient_header"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Premium Back Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/backCard"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/primary"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_gravity="center"
+                android:contentDescription="Back"
+                app:tint="@color/white" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Title with Icon -->
+        <LinearLayout
+            android:id="@+id/titleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Study Session"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Form Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/formCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:layout_constraintTop_toBottomOf="@id/headerGradient"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Subject Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/subjectLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject Name"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/primary"
+                    app:hintTextColor="@color/primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSubject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Date Picker Button -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="📅 Select Date"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDatePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Choose Date"
+                    android:textSize="14sp"
+                    app:cornerRadius="12dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/accent"
+                    android:backgroundTint="@color/card_bg"
+                    android:textColor="@color/accent"
+                    android:icon="@android:drawable/ic_menu_today"
+                    android:iconTint="@color/accent"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/selectedDateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="No date selected"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+                <!-- Hours Studied Picker -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="⏱️ Hours Studied"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnDecrementHour"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="-"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tvHours"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="16dp" />
+
+                    <Button
+                        android:id="@+id/btnIncrementHour"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="+"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvHoursWarning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="11sp"
+                    android:textColor="@color/warning"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Difficulty Section -->
+                <TextView
+                    android:id="@+id/difficultyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Difficulty Level"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/difficultyGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <RadioButton
+                        android:id="@+id/radioEasy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Easy"
+                        android:textColor="@color/success"
+                        android:buttonTint="@color/success" />
+
+                    <RadioButton
+                        android:id="@+id/radioMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Medium"
+                        android:textColor="@color/warning"
+                        android:buttonTint="@color/warning"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/radioHard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Hard"
+                        android:textColor="@color/error"
+                        android:buttonTint="@color/error" />
+                </RadioGroup>
+
+                <!-- Note Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/noteLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Note (Optional)"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Save Button -->
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="24dp"
+                    android:text="SAVE SESSION"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Motivational Quote -->
+        <TextView
+            android:id="@+id/quoteText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Success is the sum of small efforts, repeated day in and day out"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/formCard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
